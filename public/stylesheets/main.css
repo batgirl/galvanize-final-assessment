@@ -1,0 +1,23 @@
+html, body {
+  margin: 0;
+}
+
+.header {
+  position: fixed;
+  background-color: lightpink;
+  margin: 0;
+  left: 0;
+  top: 0;
+  height: 150px;
+  width: 100%;
+}
+
+.header h1 {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.home {
+  margin-top: 170px;
+  margin-left: 50px;
+}
