@@ -26,6 +26,14 @@ router.get('/api/story/:id', function(req, res) {
   })
 })
 
+router.post('/api/story/:id', function(req, res) {
+  Stories.update({ _id: req.params.id }, { _id: req.params.id, title: req.body.title, link: req.body.link, 
+    image: req.body.image, summary: req.body.summary, 
+    opinions: req.body.opinions }, function(err, docs) {
+    console.log("worked");
+  })
+})
+
 router.get('*', function(req, res, next) {
   res.sendFile('public/index.html');
 });
