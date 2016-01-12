@@ -3,7 +3,7 @@ var router = express.Router();
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/test');
+var db = monk('localhost:27017/test' || MONGOLAB_URI);
 var Stories = db.get('Stories');
 
 router.get('/api/story', function(req, res) {
