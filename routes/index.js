@@ -13,8 +13,10 @@ router.get('/api/story', function(req, res) {
 })
 
 router.post('/api/story', function(req, res) {
-  Stories.insert({ data: obj }, function(err, docs) {
-    res.json(docs);
+  Stories.insert({ title: req.body.title, link: req.body.link, 
+    image: req.body.image, summary: req.body.summary, 
+    opinions: req.body.opinions }, function(err, docs) {
+      res.json(docs);
   })
 })
 

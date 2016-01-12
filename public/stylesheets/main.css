@@ -2,13 +2,18 @@ html, body {
   margin: 0;
 }
 
+img {
+  height: 200px;
+  width: 300px;
+}
+
 .header {
   position: fixed;
   background-color: lightpink;
   margin: 0;
   left: 0;
   top: 0;
-  height: 150px;
+  height: 100px;
   width: 100%;
 }
 
@@ -17,7 +22,11 @@ html, body {
   margin-top: 30px;
 }
 
-.home {
-  margin-top: 170px;
+.home, .showStory {
+  margin-top: 150px;
   margin-left: 50px;
+}
+
+.storyPreview {
+  margin: 20px;
 }

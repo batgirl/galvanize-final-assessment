@@ -1,7 +1,7 @@
 var app = angular.module('galvanizeGazette', ['ngRoute', 'ngResource']);
 
 app.factory('Story', function($resource) {
-  return $resource('/api/story/:storyId')
+  return $resource('/api/story/:id')
 })
 
 app.controller("HomeController", function($scope, $http, Story) {
@@ -12,14 +12,20 @@ app.controller("HomeController", function($scope, $http, Story) {
 
   $scope.storyData = {};
   $scope.newStory = function() {
-    var story = new Post($scope.storyData);
+    var story = new Story($scope.storyData);
     story.$save();
+    $scope.stories.push(story);
   }
-  
+
 })
 
-app.controller("StoryController", function($scope, $http, $routeParams) {
+app.controller("StoryController", function($scope, $http, $routeParams, Story) {
   // $scope.storyId = $routeParams.storyId;
+
+  $scope.story = Story.get({ id: $routeParams.id }, function() {
+    console.log($scope.story)
+  })
+
 })
 
 app.config(['$routeProvider', function($routeProvider) {

@@ -1,7 +1,18 @@
 <div class="home">
   <form ng-submit="newStory()">
-    <label>New Story:</label>
-    <textarea ng-model="storyData.text"></textarea>
-    <button type="submit" class="button button-positive button-block">Create</button>
+    <label>Title:</label>
+    <input type="text" ng-model="storyData.title"/>
+    <label>Link:</label>
+    <input type="text" ng-model="storyData.link"/>
+    <label>Image URL:</label>
+    <input type="text" ng-model="storyData.image"/>
+    <label>Summary:</label>
+    <textarea ng-model="storyData.summary"></textarea>
+    <button type="submit" class="button button-positive button-block">Submit</button>
   </form>
+
+  <div class="storyPreview" ng-repeat="story in stories">
+    <img ng-src="{{story.image}}"/>
+    <a ng-href="/#story/{{story._id}}"><h3>{{story.title}}</h3></a>
+  </div>
 </div>
