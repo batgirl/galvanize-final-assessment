@@ -1,5 +1,5 @@
-<div class="home">
-  <form ng-submit="newStory()">
+<div class="home container">
+<!--   <form ng-submit="newStory()">
     <label>Title:</label>
     <input type="text" ng-model="storyData.title"/>
     <label>Link:</label>
@@ -9,10 +9,51 @@
     <label>Summary:</label>
     <textarea ng-model="storyData.summary"></textarea>
     <button type="submit" class="button button-positive button-block">Submit</button>
-  </form>
-
-  <div class="storyPreview" ng-repeat="story in stories">
-    <img ng-src="{{story.image}}"/>
-    <a ng-href="/#story/{{story._id}}"><h3>{{story.title}}</h3></a>
+  </form> -->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+      <p class="lead">Welcome! Here you can share stories from the Internet you've found interesting and share your opinion on them. Feel free to get started!</p>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-md-2 col-md-offset-5 text-center">
+      <button class="btn btn-primary" ng-click="isStoryFormOpen = !isStoryFormOpen">Add a Story</button>
+    </div>
   </div>
+  <div class="row" ng-show="isStoryFormOpen">
+    <div class="col-md-6 col-md-offset-3">
+      <form ng-submit="newStory()">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" id="title" ng-model="storyData.title">
+        </div>
+        <div class="form-group">
+          <label for="link">Link:</label>
+          <input type="text" class="form-control" id="link" ng-model="storyData.link">
+        </div>
+        <div class="form-group">
+          <label for="image">Image URL:</label>
+          <input type="text" class="form-control" id="link" ng-model="storyData.image">
+        </div>
+        <div class="form-group">
+          <label for="summary">Summary:</label>
+          <textarea class="form-control" id="summary" ng-model="storyData.summary"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="storyPreview row" ng-repeat="storyRow in stories | groupBy: 4">
+      <div class="col-md-4" ng-repeat="story in storyRow">
+        <img ng-src="{{story.image}}"/>
+        <a class="storyTitleLink" ng-href="/#story/{{story._id}}"><h3>{{story.title}}</h3></a>
+      </div>
+    </div>
+  </div>
+
 </div>
+

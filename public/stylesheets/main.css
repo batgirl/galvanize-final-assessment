@@ -7,14 +7,19 @@ img {
   width: 300px;
 }
 
+a:hover {
+  color: white;
+}
+
 .header {
   position: fixed;
-  background-color: lightpink;
+  background-image: url(http://i.telegraph.co.uk/multimedia/archive/02357/eso-summary_2357457k.jpg);
   margin: 0;
   left: 0;
   top: 0;
   height: 100px;
   width: 100%;
+  z-index: 1000;
 }
 
 .header h1 {
@@ -23,10 +28,14 @@ img {
 }
 
 .home, .showStory {
-  margin-top: 150px;
+  margin-top: 130px;
   margin-left: 50px;
 }
 
 .storyPreview {
   margin: 20px;
+}
+
+.storyImage {
+  margin-bottom: 30px;
 }

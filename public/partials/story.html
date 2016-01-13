@@ -1,21 +1,31 @@
 <div class="showStory">
-  <h2>hay</h2>
-  <p>{{story.title}}</p>
-  <p>{{story.link}}</p>
-  <p>{{story.image}}</p>
-  <p>{{story.summary}}</p>
-  <h2>Opinions</h2>
-  <div ng-repeat="opinion in story.opinions track by $index">
-    <p>{{opinion}}</p>
-    <hr>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <a ng-href="//{{story.link}}"><h2>{{story.title}}</h2></a>
+      <img class="storyImage" ng-src="{{story.image}}"/>
+      <p class="lead">{{story.summary}}</p>
+    </div>
   </div>
-  <form ng-submit="addOpinion()">
-    <label>What's your opinion?</label>
-    <input type="text" ng-model="tmpOpinion" />
-    <button type="submit" class="button button-positive button-block">Add</button>
-  </form>
-  <div class="wordCount">
-    <h4>Word Count</h4>
-    <p ng-repeat="(key, value) in words">{{key}} ({{value}})</p>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h3>Opinions</h3>
+      <div ng-repeat="opinion in story.opinions track by $index">
+        <p>{{opinion}}</p>
+        <hr>
+      </div>
+      <form ng-submit="addOpinion()">
+        <div class="form-group">
+          <label>What's your opinion?</label>
+          <input type="text" class="form-control" ng-model="tmpOpinion" />
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </div>
+  <div class="row" ng-show="words">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h4>Word Count</h4>
+      <p ng-repeat="(key, value) in words">{{key}} ({{value}})</p>
+    </div>
   </div>
 </div>

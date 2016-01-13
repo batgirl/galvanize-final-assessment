@@ -1,4 +1,4 @@
-var app = angular.module('galvanizeGazette', ['ngRoute', 'ngResource']);
+var app = angular.module('galvanizeGazette', ['ngRoute', 'ngResource', 'angular.filter']);
 
 app.factory('Story', function($resource) {
   return $resource('/api/story/:id', {id: "@_id"})
@@ -16,6 +16,7 @@ app.controller("HomeController", function($scope, Story) {
     story.opinions = [];
     story.$save();
     $scope.stories.push(story);
+    $scope.storyData = {};
   }
 
 })
